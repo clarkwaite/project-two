@@ -159,7 +159,7 @@ router.get('/delete/:id', function (request, response) {
 router.get('/:userId/beverages/', function (request, response, next) {
 
      // grab the ID of the user we want to show
-    var userId = request.params.id;
+   var userId = request.params.userId;
 
    User.findById(userId)
         .exec(function (error, user) {
@@ -169,7 +169,7 @@ router.get('/:userId/beverages/', function (request, response, next) {
                 console.log("Error message: " + error);
                 return;
             }
-
+       
     // find all of the beverages for the user
     Beverages.find({})
         .exec(function (error, beverageList) {
@@ -182,7 +182,8 @@ router.get('/:userId/beverages/', function (request, response, next) {
             // then pass the list of beverages to Handlebars to render
             response.render('beverages/index', {
                 beverageList: beverageList,
-                user: user
+                user: user,
+                userId: userId
             });
         })
     });
