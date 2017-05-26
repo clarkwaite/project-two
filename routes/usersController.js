@@ -156,7 +156,7 @@ router.get('/delete/:id', function (request, response) {
 });
 
 // BEVERAGE INDEX ROUTE
-router.get('/:userId/beverages/', function (request, response, next) {
+router.get('/:userId/beverages/', function (request, response) {
 
      // grab the ID of the user we want to show
    var userId = request.params.userId;
@@ -169,26 +169,37 @@ router.get('/:userId/beverages/', function (request, response, next) {
                 console.log("Error message: " + error);
                 return;
             }
+            // once we've found the user, pass the user object to Handlebars to render
+            response.render('beverages/index', {
+                user: user
+            });
+            console.log(user);
+        });
+
+});
+
+
+
        
-    // find all of the beverages for the user
-    Beverages.find({})
-        .exec(function (error, beverageList) {
+//     // find all of the beverages for the user
+//     Beverages.find({})
+//         .exec(function (error, beverageList) {
 
-            if (error) {
-                console.log("Error while retrieving beverages: " + error);
-                return;
-            }
+//             if (error) {
+//                 console.log("Error while retrieving beverages: " + error);
+//                 return;
+//             }
 
-            response.send(beverageList);
-            // then pass the list of beverages to Handlebars to render
-            // response.render('beverages/index', {
-            //     beverageList: beverageList,
-            //     user: user,
-            //     userId: userId
-            // });
-        })
-    });
-})
+//             response.send(beverageList);
+//             // then pass the list of beverages to Handlebars to render
+//             // response.render('beverages/index', {
+//             //     beverageList: beverageList,
+//             //     user: user,
+//             //     userId: userId
+//             // });
+//         })
+//     });
+// })
 
 // SHOW NEW BEVERAGE FORM
 router.get('/:userId/beverages/new', function (request, response) {
@@ -230,7 +241,7 @@ var beverage = new Beverages({
 
             // once we have added the new Beverage to the user's collection 
             // of beverages, we can save the user
-            beverage.save(function (err) {
+            user.save(function (err) {
                 if (err) {
                     console.log(err);
                     return;
@@ -241,6 +252,7 @@ var beverage = new Beverages({
             })
         });
 });
+
 // // REMOVE AN BEVERAGE
 // router.get('/:userId/beverages/:beverageId/delete', function (request, response) {
 

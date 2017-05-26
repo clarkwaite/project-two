@@ -7,12 +7,11 @@ var Beverages = require('../models/beverage');
 // Use native promises
 mongoose.Promise = global.Promise;
 
-// First we clear the database of existing users and beverages.
-// Beverages.remove({}, function(err){
-//   console.log(err);
-// });
-
 User.remove({}, function(err){
+  console.log(err);
+});
+// First we clear the database of existing users and beverages.
+Beverages.remove({}, function(err){
   console.log(err);
 });
 
