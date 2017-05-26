@@ -42,7 +42,7 @@ UserSchema.pre('save', function(next){
 
 
 var UserModel = mongoose.model("User", UserSchema);
-var BeverageModel = mongoose.model("Item", BeverageSchema);
+var BeverageModel = mongoose.model("Beverage", BeverageSchema);
 
 module.exports = {
   User: UserModel,

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/express-mongoose-lesson-starter');
+mongoose.connect('mongodb://localhost/drinkable');
 
 var User = require('../models/user');
 var Beverages = require('../models/beverage');
@@ -8,9 +8,9 @@ var Beverages = require('../models/beverage');
 mongoose.Promise = global.Promise;
 
 // First we clear the database of existing users and beverages.
-Beverages.remove({}, function(err){
-  console.log(err);
-});
+// Beverages.remove({}, function(err){
+//   console.log(err);
+// });
 
 User.remove({}, function(err){
   console.log(err);
