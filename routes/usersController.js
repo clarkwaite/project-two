@@ -220,16 +220,23 @@ router.post('/:userId/beverages/', function (request, response) {
     var userId = request.params.userId;
 
     // then grab the new Beverage that we created using the form
-var newBeverageFromForm = request.body;
+// var newBeverageFromForm = request.body;
 
-var beverage = new Beverages({
-    name: newBeverageFromForm.name,
-    type: newBeverageFromForm.type,
-    drinkDate: newBeverageFromForm.drinkDate,
-    rating: newBeverageFromForm.rating,
-    drinkable: newBeverageFromForm.drinkable,
-    comments: newBeverageFromForm.comments
-});
+// var beverage = new Beverages({
+//     name: newBeverageFromForm.name,
+//     type: newBeverageFromForm.type,
+//     drinkDate: newBeverageFromForm.drinkDate,
+//     rating: newBeverageFromForm.rating,
+//     drinkable: newBeverageFromForm.drinkable,
+//     comments: newBeverageFromForm.comments
+// });
+    var newBeverageName = request.body.name;
+    var newBeverageType = request.body.type;
+    var newBeverageDrinkDate = request.body.drinkDate;
+    var newBeverageRating = request.body.rating;
+    var newBeverageDrinkable = request.body.drinkable;
+    var newBeverageComments = request.body.comments;
+
 
     // Find the User in the database we want to save the new Beverage for
     User.findById(userId)
@@ -237,8 +244,15 @@ var beverage = new Beverages({
 
             // add a new Beverage to the User's list of beverages, using the data
             // we grabbed off of the form
-            user.beverages.push(new Beverages({beverage}));
-console.log(beverage.name)
+            user.beverages.push(new Beverages({
+                name: newBeverageName,
+                type: newBeverageType,
+                drinkDate: newBeverageDrinkDate,
+                rating: newBeverageRating,
+                drinkable: newBeverageDrinkable,
+                comments: newBeverageComments
+            }));
+
             // once we have added the new Beverage to the user's collection 
             // of beverages, we can save the user
             user.save(function (err) {
