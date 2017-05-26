@@ -170,7 +170,6 @@ router.get('/:userId/beverages/', function (request, response, next) {
             // then pass the list of beverages to Handlebars to render
             response.render('beverages/index', {
                 beverageList: beverageList,
-                userId: userId
             });
         })
 })
