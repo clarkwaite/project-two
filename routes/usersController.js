@@ -179,12 +179,13 @@ router.get('/:userId/beverages/', function (request, response, next) {
                 return;
             }
 
+            response.send(beverageList);
             // then pass the list of beverages to Handlebars to render
-            response.render('beverages/index', {
-                beverageList: beverageList,
-                user: user,
-                userId: userId
-            });
+            // response.render('beverages/index', {
+            //     beverageList: beverageList,
+            //     user: user,
+            //     userId: userId
+            // });
         })
     });
 })
@@ -202,7 +203,7 @@ router.get('/:userId/beverages/new', function (request, response) {
 });
 
 // ADD A NEW BEVERAGE
-router.post('/:userId/beverages/new', function (request, response) {
+router.post('/:userId/beverages/', function (request, response) {
 
     // grab the user ID we want to create a new beverage for
     var userId = request.params.userId;
@@ -225,11 +226,11 @@ var beverage = new Beverages({
 
             // add a new Beverage to the User's list of beverages, using the data
             // we grabbed off of the form
-            user.beverages.push(new Beverage({ name: newBeverageName }));
+            user.beverages.push(new Beverages({beverage}));
 
             // once we have added the new Beverage to the user's collection 
             // of beverages, we can save the user
-            user.save(function (err) {
+            beverage.save(function (err) {
                 if (err) {
                     console.log(err);
                     return;

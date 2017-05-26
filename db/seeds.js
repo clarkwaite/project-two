@@ -2,15 +2,15 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/express-mongoose-lesson-starter');
 
 var User = require('../models/user');
-// var Item = require('../models/item');
+var Beverages = require('../models/beverage');
 
 // Use native promises
 mongoose.Promise = global.Promise;
 
-// First we clear the database of existing users and items.
-// Item.remove({}, function(err){
-//   console.log(err);
-// });
+// First we clear the database of existing users and beverages.
+Beverages.remove({}, function(err){
+  console.log(err);
+});
 
 User.remove({}, function(err){
   console.log(err);
@@ -21,7 +21,7 @@ var clark = new User({
   first_name: 'Clark',
   last_name: 'Waite',
   email: 'clarkwaite@gmail.com',
-//   items: [{name: "Bike maintenance"}]
+  beverages: [{name: "Bells Two Hearted", type: 'IPA', drinkDate: '04/26/17', rating: 100, drinkable: true, comments: 'Great beer!'}]
 });
 
 // save the users

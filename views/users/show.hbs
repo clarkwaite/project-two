@@ -4,12 +4,12 @@
     <div>First Name: {{user.first_name}}</div>
     <div>Last Name: {{user.last_name}}</div>
     <div>Email: {{user.email}}</div>
-    <div>Items: 
+    <div>Beverages: 
         <ul>
-            {{# each user.items}}
+            {{# each user.beverages}}
                 <span><li>Name: {{name}}</li></span> 
-                <span><a href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a></span>
-                <span><a href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a></span>
+                <span><a href="/users/{{../user.id}}/beverages/{{_id}}/edit">Edit</a></span>
+                <span><a href="/users//{{../user.id}}/beverages/{{id}}/delete">Delete</a></span>
             {{/ each}}
         </ul>
     </div>

@@ -28,7 +28,7 @@ var UserSchema = new Schema({
   email: { type: String, required: true, unique: true },
   created_at: Date,
   updated_at: Date,
-//   beverages: [BeveragesSchema]
+  beverages: [BeverageSchema]
 });
 
 UserSchema.pre('save', function(next){
