@@ -220,16 +220,7 @@ router.post('/:userId/beverages/', function (request, response) {
     var userId = request.params.userId;
 
     // then grab the new Beverage that we created using the form
-// var newBeverageFromForm = request.body;
 
-// var beverage = new Beverages({
-//     name: newBeverageFromForm.name,
-//     type: newBeverageFromForm.type,
-//     drinkDate: newBeverageFromForm.drinkDate,
-//     rating: newBeverageFromForm.rating,
-//     drinkable: newBeverageFromForm.drinkable,
-//     comments: newBeverageFromForm.comments
-// });
     var newBeverageName = request.body.name;
     var newBeverageType = request.body.type;
     var newBeverageDrinkDate = request.body.drinkDate;
@@ -274,7 +265,7 @@ router.get('/:userId/beverages/:beverageId/delete', function (request, response)
     var userId = request.params.userId;
 
     // grab the ID of the Beverage we would like to delete for the User ID above
-    var beverageId = users.beverage._id;
+    var beverageId = request.params.beverageId;
 
     // use Mongoose to find the User by its ID and delete the Beverage 
     // that matches our Beverage ID
