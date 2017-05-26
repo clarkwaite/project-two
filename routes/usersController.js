@@ -74,7 +74,8 @@ router.get('/:id', function (request, response) {
 
             // once we've found the user, pass the user object to Handlebars to render
             response.render('users/show', {
-                user: user
+                user: user,
+                userId: request.params.id
             });
         });
 
@@ -253,37 +254,40 @@ router.post('/:userId/beverages/', function (request, response) {
                 }
                 // once the user has been saved, we can redirect back 
                 // to the User's show page, and we should see the new beverage
-                response.redirect('/users/' + userId+'/beverages');
+                response.redirect('/users/'+userId+'/beverages');
             })
         });
 });
 
 // REMOVE A BEVERAGE
-router.get('/:userId/beverages/:beverageId/delete', function (request, response) {
-
-    // grab the ID of the User we would like to delete an beverage for
+router.delete('/:userId/beverages/:id', function (request, response) {
     var userId = request.params.userId;
+// REMOVE AN ITEM
+  User.findByIdAndUpdate(userId, {
+    $pull: {
+      beverages: {_id: request.params.id }
+    }
+  })
+  .exec(function(err, item) {
+    if(err) {
+      console.log(err);
+      return;
+    }
 
-    // grab the ID of the Beverage we would like to delete for the User ID above
-    var beverageId = request.params.beverageId;
-
-    // use Mongoose to find the User by its ID and delete the Beverage 
-    // that matches our Beverage ID
-    User.findByIdAndUpdate(userId, {
-        $pull: {
-            beverages: { _id: beverageId }
-        }
-    })
-        .exec(function (err, beverage) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-
-            // once we have deleted the beverage, redirect to the user's show page
-            response.redirect('/users/' + userId+'/beverages');
-        })
+    response.redirect('/users/'+userId+'/beverages');
+  })
 });
+// http://localhost:3000/users/592876ae2391f43c14425fef/beverages/59287b900fcd363db3fd2dd5?_method=DELETE
+
+
+
+// "beverages/{{_id}}
+
+
+
+
+
+
 
 // // SHOW THE BEVERAGE EDIT FORM
 // router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
