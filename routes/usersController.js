@@ -238,7 +238,7 @@ var beverage = new Beverages({
             // add a new Beverage to the User's list of beverages, using the data
             // we grabbed off of the form
             user.beverages.push(new Beverages({beverage}));
-
+console.log(beverage.name)
             // once we have added the new Beverage to the user's collection 
             // of beverages, we can save the user
             user.save(function (err) {
@@ -253,32 +253,32 @@ var beverage = new Beverages({
         });
 });
 
-// // REMOVE AN BEVERAGE
-// router.get('/:userId/beverages/:beverageId/delete', function (request, response) {
+// REMOVE A BEVERAGE
+router.get('/:userId/beverages/:beverageId/delete', function (request, response) {
 
-//     // grab the ID of the User we would like to delete an beverage for
-//     var userId = request.params.userId;
+    // grab the ID of the User we would like to delete an beverage for
+    var userId = request.params.userId;
 
-//     // grab the ID of the Beverage we would like to delete for the User ID above
-//     var beverageId = request.params.beverageId;
+    // grab the ID of the Beverage we would like to delete for the User ID above
+    var beverageId = users.beverage._id;
 
-//     // use Mongoose to find the User by its ID and delete the Beverage 
-//     // that matches our Beverage ID
-//     User.findByIdAndUpdate(userId, {
-//         $pull: {
-//             beverages: { _id: beverageId }
-//         }
-//     })
-//         .exec(function (err, beverage) {
-//             if (err) {
-//                 console.log(err);
-//                 return;
-//             }
+    // use Mongoose to find the User by its ID and delete the Beverage 
+    // that matches our Beverage ID
+    User.findByIdAndUpdate(userId, {
+        $pull: {
+            beverages: { _id: beverageId }
+        }
+    })
+        .exec(function (err, beverage) {
+            if (err) {
+                console.log(err);
+                return;
+            }
 
-//             // once we have deleted the beverage, redirect to the user's show page
-//             response.redirect('/users/' + userId);
-//         })
-// });
+            // once we have deleted the beverage, redirect to the user's show page
+            response.redirect('/users/' + userId+'/beverages');
+        })
+});
 
 // // SHOW THE BEVERAGE EDIT FORM
 // router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
