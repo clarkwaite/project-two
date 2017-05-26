@@ -153,8 +153,27 @@ router.get('/delete/:id', function (request, response) {
             response.redirect('/users');
 
         });
-
 });
+
+// BEVERAGE INDEX ROUTE
+router.get('/:userId/beverages/', function (request, response, next) {
+
+    // find all of the beverages for the user
+    Beverages.find({})
+        .exec(function (error, beverageList) {
+
+            if (error) {
+                console.log("Error while retrieving beverages: " + error);
+                return;
+            }
+
+            // then pass the list of beverages to Handlebars to render
+            response.render('beverages/index', {
+                beverageList: beverageList,
+                userId: userId
+            });
+        })
+})
 
 // SHOW NEW BEVERAGE FORM
 router.get('/:userId/beverages/new', function (request, response) {
@@ -175,7 +194,16 @@ router.post('/:userId/beverages', function (request, response) {
     var userId = request.params.userId;
 
     // then grab the new Beverage that we created using the form
-    var newBeverageName = request.body.name;
+var newBeverageFromForm = request.body;
+
+var beverage = new Beverages({
+    name: newBeverageFromForm.name,
+    type: newBeverageFromForm.type,
+    drinkDate: newBeverageFromForm.drinkDate,
+    rating: newBeverageFromForm.rating,
+    drinkable: newBeverageFromForm.drinkable,
+    comments: newBeverageFromForm.comments
+});
 
     // Find the User in the database we want to save the new Beverage for
     User.findById(userId)
@@ -192,109 +220,107 @@ router.post('/:userId/beverages', function (request, response) {
                     console.log(err);
                     return;
                 }
-
                 // once the user has been saved, we can redirect back 
                 // to the User's show page, and we should see the new beverage
-                response.redirect('/users/' + userId);
+                response.redirect('/users/' + userId+'/beverages');
             })
         });
 });
+// // REMOVE AN BEVERAGE
+// router.get('/:userId/beverages/:beverageId/delete', function (request, response) {
 
-// REMOVE AN BEVERAGE
-router.get('/:userId/beverages/:beverageId/delete', function (request, response) {
+//     // grab the ID of the User we would like to delete an beverage for
+//     var userId = request.params.userId;
 
-    // grab the ID of the User we would like to delete an beverage for
-    var userId = request.params.userId;
+//     // grab the ID of the Beverage we would like to delete for the User ID above
+//     var beverageId = request.params.beverageId;
 
-    // grab the ID of the Beverage we would like to delete for the User ID above
-    var beverageId = request.params.beverageId;
+//     // use Mongoose to find the User by its ID and delete the Beverage 
+//     // that matches our Beverage ID
+//     User.findByIdAndUpdate(userId, {
+//         $pull: {
+//             beverages: { _id: beverageId }
+//         }
+//     })
+//         .exec(function (err, beverage) {
+//             if (err) {
+//                 console.log(err);
+//                 return;
+//             }
 
-    // use Mongoose to find the User by its ID and delete the Beverage 
-    // that matches our Beverage ID
-    User.findByIdAndUpdate(userId, {
-        $pull: {
-            beverages: { _id: beverageId }
-        }
-    })
-        .exec(function (err, beverage) {
-            if (err) {
-                console.log(err);
-                return;
-            }
+//             // once we have deleted the beverage, redirect to the user's show page
+//             response.redirect('/users/' + userId);
+//         })
+// });
 
-            // once we have deleted the beverage, redirect to the user's show page
-            response.redirect('/users/' + userId);
-        })
-});
+// // SHOW THE BEVERAGE EDIT FORM
+// router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
 
-// SHOW THE BEVERAGE EDIT FORM
-router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
+//     // grab the ID of the user whose Beverage we would like to edit
+//     var userId = request.params.userId;
 
-    // grab the ID of the user whose Beverage we would like to edit
-    var userId = request.params.userId;
+//     // then grab the ID of the Beverage we would like to edit for the User above
+//     var beverageId = request.params.beverageId;
 
-    // then grab the ID of the Beverage we would like to edit for the User above
-    var beverageId = request.params.beverageId;
+//     // find the User by ID
+//     User.findById(userId)
+//         .exec(function (error, user) {
 
-    // find the User by ID
-    User.findById(userId)
-        .exec(function (error, user) {
+//             // once we have found the User, find the Beverage in its' array 
+//             // of beverages that matches the Beverage ID above
+//             var beverageToEdit = user.beverages.find(function (beverage) {
+//                 return beverage.id === beverageId;
+//             })
 
-            // once we have found the User, find the Beverage in its' array 
-            // of beverages that matches the Beverage ID above
-            var beverageToEdit = user.beverages.find(function (beverage) {
-                return beverage.id === beverageId;
-            })
+//             // Once we have found the beverage we would like to edit, render the 
+//             // Beverage edit form with all of the information we would like to put 
+//             // into the form
+//             response.render('beverages/edit', {
+//                 userId: userId,
+//                 beverageId: beverageId,
+//                 beverageToEdit: beverageToEdit
+//             })
+//         })
 
-            // Once we have found the beverage we would like to edit, render the 
-            // Beverage edit form with all of the information we would like to put 
-            // into the form
-            response.render('beverages/edit', {
-                userId: userId,
-                beverageId: beverageId,
-                beverageToEdit: beverageToEdit
-            })
-        })
+// });
 
-});
+// // EDIT AN BEVERAGE
+// router.put('/:userId/beverages/:beverageId', function (request, response) {
 
-// EDIT AN BEVERAGE
-router.put('/:userId/beverages/:beverageId', function (request, response) {
+//     // find the ID of the user we would like to edit
+//     var userId = request.params.userId;
 
-    // find the ID of the user we would like to edit
-    var userId = request.params.userId;
+//     // find the ID of the beverage we would like to edit for the User above
+//     var beverageId = request.params.beverageId;
 
-    // find the ID of the beverage we would like to edit for the User above
-    var beverageId = request.params.beverageId;
+//     // grab the edited information about the Beverage from the form
+//     var editedBeverageFromForm = request.body;
 
-    // grab the edited information about the Beverage from the form
-    var editedBeverageFromForm = request.body;
+//     // find the User by ID
+//     User.findById(userId)
+//         .exec(function (error, user) {
 
-    // find the User by ID
-    User.findById(userId)
-        .exec(function (error, user) {
+//             // once we have found the User, find the Beverage in that user's 
+//             // collection of Beverages that matches our Beverage ID above
+//             var beverageToEdit = user.beverages.find(function (beverage) {
+//                 return beverage.id === beverageId;
+//             })
 
-            // once we have found the User, find the Beverage in that user's 
-            // collection of Beverages that matches our Beverage ID above
-            var beverageToEdit = user.beverages.find(function (beverage) {
-                return beverage.id === beverageId;
-            })
+//             // update the beverage we would like to edit with the new 
+//             // information from the form
+//             beverageToEdit.name = editedBeverageFromForm.name;
 
-            // update the beverage we would like to edit with the new 
-            // information from the form
-            beverageToEdit.name = editedBeverageFromForm.name;
-
-            // once we have edited the Beverage, save the user to the database
-            user.save(function (error, user) {
+//             // once we have edited the Beverage, save the user to the database
+//             user.save(function (error, user) {
                 
-                // Once we have saved the user with its edited Beverage, redirect 
-                // to the show page for that User. We should see the Beverage 
-                // information updated.
-                response.redirect('/users/' + userId)
-            });
+//                 // Once we have saved the user with its edited Beverage, redirect 
+//                 // to the show page for that User. We should see the Beverage 
+//                 // information updated.
+//                 response.redirect('/users/' + userId)
+//             });
 
             
-        });
-});
+//         });
+// });
 
 module.exports = router;

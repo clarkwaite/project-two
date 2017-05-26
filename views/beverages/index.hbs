@@ -1,0 +1,21 @@
+<h1>Beverages of {{userId}}</h1>
+
+<ul>
+    {{# each beverageList}}
+        <li>
+            {{!--<div><a href="/users/{{_id}}">View User</a></div>
+            <div><a href="/users/delete/{{_id}}">Delete User</a></div>--}}
+            <div>Id: {{_id}}</div>
+            <div>Name: {{name}}</div>
+            <div>Type: {{type}}</div>
+            <div>Email: {{drinkDate}}</div>
+            <div>Created At: {{created_at}}</div>
+            <div>Rating Out of 100: {{rating}}</div>
+            <div>Drinkable (Yes/No): {{drinkable}}</div>
+            <div>Comments: {{comments}}</div>
+        </li>
+        <br>
+    {{/ each}}
+</ul>
+
+{{!--<div><a href="/users/new">Create a New User</a></div>--}}
