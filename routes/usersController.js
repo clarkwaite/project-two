@@ -158,6 +158,18 @@ router.get('/delete/:id', function (request, response) {
 // BEVERAGE INDEX ROUTE
 router.get('/:userId/beverages/', function (request, response, next) {
 
+     // grab the ID of the user we want to show
+    var userId = request.params.id;
+
+    // then find the user in the database using the ID
+    User.findById(userId)
+        .exec(function (error, user) {
+             if (error) {
+                console.log("Error while retrieving user with ID of " + userId);
+                console.log("Error message: " + error);
+                return;
+            }
+       
     // find all of the beverages for the user
     Beverages.find({})
         .exec(function (error, beverageList) {
@@ -172,6 +184,7 @@ router.get('/:userId/beverages/', function (request, response, next) {
                 beverageList: beverageList,
             });
         })
+    });
 })
 
 // SHOW NEW BEVERAGE FORM
@@ -187,7 +200,7 @@ router.get('/:userId/beverages/new', function (request, response) {
 });
 
 // ADD A NEW BEVERAGE
-router.post('/:userId/beverages', function (request, response) {
+router.post('/:userId/beverages/new', function (request, response) {
 
     // grab the user ID we want to create a new beverage for
     var userId = request.params.userId;
