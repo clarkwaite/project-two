@@ -1,23 +1,13 @@
 <div>
-    <h1>User {{user.id}}</h1>
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
 
-    <div>First Name: {{user.first_name}}</div>
-    <div>Last Name: {{user.last_name}}</div>
     <div>Email: {{user.email}}</div>
-    <br>
-    {{!--<div>Beverages: 
-        <ul>
-            {{# each user.beverages}}
-                <span><li>Name: {{name}}</li></span> 
-                <span><a href="/users/{{../user.id}}/beverages/{{_id}}/edit">Edit</a></span>
-                <span><a href="/users//{{../user.id}}/beverages/{{id}}/delete">Delete</a></span>
-            {{/ each}}
-        </ul>
-    </div>--}}
-
-    <div><a href="/users/edit/{{user.id}}">Edit This User</a></div>
-    <div><a href="/users">Back to Users</a></div>
-    <br>
-    <div><a href="/users/{{user.id}}/beverages/">Go To Drinkable</a></div>
-
+      <br>
+        <div><a href="/users/{{user.id}}/beverages/">Go To Drinkable</a></div>
+      <br>
+        <div><a href="/users/edit/{{user.id}}">Edit This User</a></div>
+      <br>
+        <div><a href="/users/delete/{{user.id}}">Delete User</a></div>
+      <br>
+        <div><a href="/users">Back to Users</a></div>
 </div>

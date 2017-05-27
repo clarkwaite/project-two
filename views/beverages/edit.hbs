@@ -1,4 +1,4 @@
-<h1>Edit{{ beverageToEdit.name}}</h1>
+<h1>Edit {{beverageToEdit.name}}</h1>
 
 <form method="POST" action="/users/{{userId}}/beverages/{{beverageId}}?_method=PUT">
     Name: <input type="text" name="name" value="{{beverageToEdit.name}}"><br>

@@ -236,6 +236,34 @@ router.post('/:userId/beverages/', function (request, response) {
         });
 });
 
+// SHOW A BEVERAGE
+router.get('/:userId/beverages/:beverageId', function (request, response) {
+
+    // find the ID of the user we would like to edit
+    var userId = request.params.userId;
+
+    // find the ID of the beverage we would like to edit for the User above
+    var beverageId = request.params.beverageId;
+
+    // find the User by ID
+    User.findById(userId)
+        .exec(function (error, user) {
+
+            // once we have found the User, find the Beverage in that user's 
+            // collection of Beverages that matches our Beverage ID above
+            var beverageToView = user.beverages.find(function (beverage) {
+                return beverage.id === beverageId;
+            })
+
+                response.render('beverages/show', {
+                user: user,
+                beverageId: beverageId,
+                userId: request.params.id,
+                beverageToView: beverageToView
+            });
+        });
+});
+
 // REMOVE A BEVERAGE
 router.delete('/:userId/beverages/:id', function (request, response) {
     var userId = request.params.userId;
@@ -284,7 +312,7 @@ router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
 
 });
 
-// EDIT AN BEVERAGE
+// EDIT A BEVERAGE
 router.put('/:userId/beverages/:beverageId', function (request, response) {
 
     // find the ID of the user we would like to edit
@@ -309,9 +337,14 @@ router.put('/:userId/beverages/:beverageId', function (request, response) {
             // update the beverage we would like to edit with the new 
             // information from the form
             beverageToEdit.name = editedBeverageFromForm.name;
+            beverageToEdit.type = editedBeverageFromForm.type;
+            beverageToEdit.drinkDate = editedBeverageFromForm.drinkDate;
+            beverageToEdit.rating = editedBeverageFromForm.rating;
+            beverageToEdit.drinkable = editedBeverageFromForm.drinkable;
+            beverageToEdit.comments = editedBeverageFromForm.comments;
 
             // once we have edited the Beverage, save the user to the database
-            user.save(function (error, user) {
+            user.save({multi: true}, function  (error, user) {
                 
                 // Once we have saved the user with its edited Beverage, redirect 
                 // to the show page for that User. We should see the Beverage 

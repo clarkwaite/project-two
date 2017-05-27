@@ -1,13 +1,11 @@
-<h1>Beverages of {{user._id}}</h1>
+<h1>Beverages of {{user.first_name}}</h1>
 
 <ul>
     {{# each user.beverages}}
         <li>
-            <div>Id: {{_id}}</div>
-            <div>Name: {{name}}</div>
+            <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{name}}</a></div>
             <div>Type: {{type}}</div>
             <div>Consumption Date: {{drinkDate}}</div>
-            <div>Created At: {{created_at}}</div>
             <div>Rating Out of 100: {{rating}}</div>
             <div>Drinkable (Yes/No): {{drinkable}}</div>
             <div>Comments: {{comments}}</div>
@@ -20,14 +18,3 @@
 </ul>
 <div><a href="/users/{{user._id}}/beverages/new">Add A New Beverage</a></div>
 <div><a href="/users/{{user._id}}">Back to Users</a></div>
-
-{{!--
-<div>Items: 
-        <ul>
-            {{# each user.items}}
-                <span><li>Name: {{name}}</li></span> 
-                <span><a href="/users/{{../user.id}}/items/{{_id}}/edit">Edit</a></span>
-                <span><a href="/users//{{../user.id}}/items/{{id}}/delete">Delete</a></span>
-            {{/ each}}
-        </ul>
-    </div>--}}

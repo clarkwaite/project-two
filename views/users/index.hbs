@@ -3,20 +3,11 @@
 <ul>
     {{# each userList}}
         <li>
-            <div><a href="/users/{{_id}}">View User</a></div>
-            <div><a href="/users/delete/{{_id}}">Delete User</a></div>
-            <div>ID: {{_id}}</div>
-            <div>First Name: {{first_name}}</div>
-            <div>Last Name: {{last_name}}</div>
+            <div><a href="/users/{{_id}}">
+            <div>Name: {{first_name}}  {{last_name}}</div>
             <div>Email: {{email}}</div>
-            <div>Created At: {{created_at}}</div>
-            {{!--<div>Beverages: 
-                <ul>
-                    {{# each beverages}}
-                        <li>Name: {{name}}</li>
-                    {{/ each}}
-                </ul>
-            </div>--}}
+            <div>User Since: {{created_at}}</div>
+            </a></div>
         </li>
         <br>
     {{/ each}}
