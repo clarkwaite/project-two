@@ -1,0 +1,11 @@
+<h1>Edit{{ beverageToEdit.name}}</h1>
+
+<form method="POST" action="/users/{{userId}}/beverages/{{beverageId}}?_method=PUT">
+    Name: <input type="text" name="name" value="{{beverageToEdit.name}}"><br>
+    Type: <input type="text" name="type" value="{{beverageToEdit.type}}"><br>
+    Consumption Date: <input type="drinkDate" name="drinkDate" value="{{beverageToEdit.drinkDate}}"><br>
+    Rating Out of 100: <input type="rating" name="rating" value="{{beverageToEdit.rating}}"><br>
+    Drinkable (Yes/No): <input type="drinkable" name="drinkable" value="{{beverageToEdit.drinkable}}"><br>
+    Comments: <input type="text" name="comments" value="{{beverageToEdit.comments}}"><br><br>
+    <input type="submit">
+</form>
