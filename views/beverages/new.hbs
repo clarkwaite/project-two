@@ -2,8 +2,8 @@
     Name: <input type="text" name="name" value="{{beverages.name}}">*<br>
     Type: <input type="radio" name="type" value="Beer">Beer<input type="radio" name="type" value="Wine">Wine<input type="radio" name="type" value="Spirit">Spirit<br> 
     Consumption Date: <input type="date" name="drinkDate" value="{{beverages.drinkDate}}"><br>
-    Style: <input type="text" name="style" value="{{beverages.style}}"><br>
-    Price: $<input type="text" name="style" value="{{beverages.price}}"><br>
+    Style: <input type="text" name="style" min="1" step="any" value="{{beverages.style}}"><br>
+    Price: $<input type="text" name="price" min="0" max="9999" step="0.01" size="4" value="{{beverages.price}}"><br>
     Rating Out of 5: <input type="radio" name="rating" value="1">1<input type="radio" name="rating" value="2">2<input type="radio" name="rating" value="3">3<input type="radio" name="rating" value="4">4<input type="radio" name="rating" value="5">5<br>
     Drinkable: <input type="radio" name="drinkable" value="Yes">Yes<input type="radio" name="drinkable" value="No">No<br>
     Comments: <input type="text" name="comments" value="{{beverages.comments}}"><br><br>

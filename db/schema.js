@@ -9,7 +9,7 @@ var BeverageSchema = new Schema({
   type: String,
   drinkDate: Date,
   style: String,
-  price: Number,
+  price: String,
   rating: Number,
   drinkable: String,
   comments: String
