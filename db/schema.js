@@ -7,9 +7,9 @@ mongoose.Promise = global.Promise;
 var BeverageSchema = new Schema({
   name: String,
   type: String,
-  drinkDate: String,
+  drinkDate: Date,
   rating: Number,
-  drinkable: Boolean,
+  drinkable: String,
   comments: String
 });
 

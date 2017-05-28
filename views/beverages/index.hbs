@@ -3,16 +3,13 @@
 <ul>
     {{# each user.beverages}}
         <li>
-            <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{name}}</a></div>
+            <div><a href="/users/{{../user._id}}/beverages/{{_id}}">Name: {{name}}</a></div>
             <div>Type: {{type}}</div>
             <div>Consumption Date: {{drinkDate}}</div>
             <div>Rating Out of 100: {{rating}}</div>
-            <div>Drinkable (Yes/No): {{drinkable}}</div>
+            <div>Drinkable: {{drinkable}}</div>
             <div>Comments: {{comments}}</div>
         </li>
-        <form action="/users/{{../user._id}}/beverages/{{_id}}?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE" class="btn btn-danger" />
-    </form>
         <br>
     {{/ each}}
 </ul>

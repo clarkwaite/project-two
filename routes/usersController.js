@@ -258,7 +258,7 @@ router.get('/:userId/beverages/:beverageId', function (request, response) {
                 response.render('beverages/show', {
                 user: user,
                 beverageId: beverageId,
-                userId: request.params.id,
+                userId: userId,
                 beverageToView: beverageToView
             });
         });

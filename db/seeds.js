@@ -20,7 +20,7 @@ var clark = new User({
   first_name: 'Clark',
   last_name: 'Waite',
   email: 'clarkwaite@gmail.com',
-  beverages: [{name: "Bells Two Hearted", type: 'IPA', drinkDate: '04/26/17', rating: 100, drinkable: true, comments: 'Great beer!'}]
+  beverages: [{name: "Bells Two Hearted", type: 'Beer', drinkDate: '04/26/17', rating: 5, drinkable: 'Yes', comments: 'Great beer!'}]
 });
 
 // save the users
