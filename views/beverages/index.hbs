@@ -1,19 +1,18 @@
-<h1>Beverages of {{user.first_name}}</h1>
+<h1>Drinkable</h1>
+    <h2>A Way to Remember the Drinks You Had</h2>
+    <h2>During a Night That You May Not Remember</h2>
 
-<ul>
-    {{# each user.beverages}}
-        <li>
-            <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{name}}</a></div>
-            <div>Type: {{type}}</div>
-            <div>Consumption Date: {{drinkDate}}</div>
-            <div>Style: {{style}}</div>
-            <div>Price: ${{price}}</div>
-            <div>Rating Out of 5: {{rating}}</div>
-            <div>Drinkable: {{drinkable}}</div>
-            <div>Comments: {{comments}}</div>
-        </li>
-        <br>
-    {{/ each}}
-</ul>
-<div><a href="/users/{{user._id}}/beverages/new">Add A New Beverage</a></div>
+<div class='container'>
+    <div class='beer'>
+        <a href="http://localhost:3000/users/{{user._id}}/beer"><img src="http://i.imgur.com/YdVAw4D.png"/></a alt="beer"/>
+    </div>
+    <div class='wine'>
+        <a href="http://localhost:3000/users/{{user._id}}/wine"><img src="http://i.imgur.com/vpsM6Uz.png"/></a alt="wine"/>
+    </div>
+    <div class='spirits'>
+        <a href="http://localhost:3000/users/{{user._id}}/spirits"><img src="http://i.imgur.com/yeONCWL.png"/></a alt="spirits"/>
+    </div>
+</div>
+<br>
 <div><a href="/users/{{user._id}}">Back to Users</a></div>
+

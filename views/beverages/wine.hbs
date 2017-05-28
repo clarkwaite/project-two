@@ -1,0 +1,19 @@
+<h1>{{user.first_name}}'s Wine</h1>
+
+<ul>
+    {{# each arrayOfTypeWine}}
+        <li>
+            <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{this.name}}</a></div>
+            <div>Type: {{this.type}}</div>
+            <div>Consumption Date: {{this.drinkDate}}</div>
+            <div>Style: {{this.style}}</div>
+            <div>Price: ${{this.price}}</div>
+            <div>Rating Out of 5: {{this.rating}}</div>
+            <div>Drinkable: {{this.drinkable}}</div>
+            <div>Comments: {{this.comments}}</div>
+        </li>
+        <br>
+    {{/ each}}
+</ul>
+<div><a href="/users/{{user._id}}/beverages/new">Add A New Wine</a></div>
+<div><a href="/users/{{user._id}}">Go Back</a></div>

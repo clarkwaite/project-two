@@ -240,6 +240,99 @@ router.post('/:userId/beverages/', function (request, response) {
         });
 });
 
+// SHOW A BEER BY TYPE
+router.get('/:userId/beer', function (request, response) {
+
+    // find the ID of the user we would like to edit
+    var userId = request.params.userId;
+
+    // find the User by ID
+    User.findById(userId)
+        .exec(function (error, user) {
+            // once we have found the User, find the Beverage in that user's 
+            // collection of Beverages that matches our Beverage ID above
+            var arrayOfTypeBeer = [];
+            var beers = function(){
+                for (let i = 0; i<user.beverages.length; i++) {
+                    if (user.beverages[i].type === 'Beer') {
+                        arrayOfTypeBeer.push(user.beverages[i]); 
+                        console.log(user.beverages[i].type);
+                    }
+                }
+            }
+            beers();
+
+                response.render('beverages/beer', {
+                beers: beers,
+                user: user,
+                userId: userId,
+                arrayOfTypeBeer: arrayOfTypeBeer
+                })
+        });
+});
+
+// SHOW A WINE BY TYPE
+router.get('/:userId/wine', function (request, response) {
+
+    // find the ID of the user we would like to edit
+    var userId = request.params.userId;
+
+    // find the User by ID
+    User.findById(userId)
+        .exec(function (error, user) {
+            // once we have found the User, find the Beverage in that user's 
+            // collection of Beverages that matches our Beverage ID above
+            var arrayOfTypeWine = [];
+            var wines = function(){
+                for (let i = 0; i<user.beverages.length; i++) {
+                    if (user.beverages[i].type === 'Wine') {
+                        arrayOfTypeWine.push(user.beverages[i]); 
+                        console.log(user.beverages[i].type);
+                    }
+                }
+            }
+            wines();
+            
+                response.render('beverages/wine', {
+                wines: wines,
+                user: user,
+                userId: userId,
+                arrayOfTypeWine: arrayOfTypeWine
+                })
+        });
+});
+
+// SHOW A SPIRIT BY TYPE
+router.get('/:userId/spirits', function (request, response) {
+
+    // find the ID of the user we would like to edit
+    var userId = request.params.userId;
+
+    // find the User by ID
+    User.findById(userId)
+        .exec(function (error, user) {
+            // once we have found the User, find the Beverage in that user's 
+            // collection of Beverages that matches our Beverage ID above
+            var arrayOfTypeSpirit = [];
+            var spirits = function(){
+                for (let i = 0; i<user.beverages.length; i++) {
+                    if (user.beverages[i].type === 'Spirit') {
+                        arrayOfTypeSpirit.push(user.beverages[i]); 
+                        console.log(user.beverages[i].type);
+                    }
+                }
+            }
+            spirits();
+            
+                response.render('beverages/spirit', {
+                spirits: spirits,
+                user: user,
+                userId: userId,
+                arrayOfTypeSpirit: arrayOfTypeSpirit
+                })
+        });
+});
+
 // SHOW A BEVERAGE
 router.get('/:userId/beverages/:beverageId', function (request, response) {
 
