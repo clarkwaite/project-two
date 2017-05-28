@@ -1,12 +1,10 @@
-<h1>Users</h1>
+<h1>Drinkable Users</h1>
 
 <ul>
     {{# each userList}}
         <li>
             <div><a href="/users/{{_id}}">
-            <div>Name: {{first_name}}  {{last_name}}</div>
-            <div>Email: {{email}}</div>
-            <div>User Since: {{created_at}}</div>
+            <div>{{first_name}}  {{last_name}}</div>
             </a></div>
         </li>
         <br>

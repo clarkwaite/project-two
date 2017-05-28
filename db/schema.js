@@ -5,9 +5,11 @@ var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 var BeverageSchema = new Schema({
-  name: String,
+  name: {type: String, unique: true, required: true},
   type: String,
   drinkDate: Date,
+  style: String,
+  price: Number,
   rating: Number,
   drinkable: String,
   comments: String

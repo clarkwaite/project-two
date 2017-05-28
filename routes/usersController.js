@@ -202,6 +202,8 @@ router.post('/:userId/beverages/', function (request, response) {
     var newBeverageName = request.body.name;
     var newBeverageType = request.body.type;
     var newBeverageDrinkDate = request.body.drinkDate;
+    var newBeverageStyle = request.body.style;
+    var newBeveragePrice = request.body.price;
     var newBeverageRating = request.body.rating;
     var newBeverageDrinkable = request.body.drinkable;
     var newBeverageComments = request.body.comments;
@@ -217,6 +219,8 @@ router.post('/:userId/beverages/', function (request, response) {
                 name: newBeverageName,
                 type: newBeverageType,
                 drinkDate: newBeverageDrinkDate,
+                style: newBeverageStyle,
+                price: newBeveragePrice,
                 rating: newBeverageRating,
                 drinkable: newBeverageDrinkable,
                 comments: newBeverageComments
@@ -339,6 +343,8 @@ router.put('/:userId/beverages/:beverageId', function (request, response) {
             beverageToEdit.name = editedBeverageFromForm.name;
             beverageToEdit.type = editedBeverageFromForm.type;
             beverageToEdit.drinkDate = editedBeverageFromForm.drinkDate;
+            beverageToEdit.style = editedBeverageFromForm.style;
+            beverageToEdit.price = editedBeverageFromForm.price;
             beverageToEdit.rating = editedBeverageFromForm.rating;
             beverageToEdit.drinkable = editedBeverageFromForm.drinkable;
             beverageToEdit.comments = editedBeverageFromForm.comments;

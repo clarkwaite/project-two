@@ -3,9 +3,11 @@
 <ul>
     {{# each user.beverages}}
         <li>
-            <div><a href="/users/{{../user._id}}/beverages/{{_id}}">Name: {{name}}</a></div>
+            <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{name}}</a></div>
             <div>Type: {{type}}</div>
             <div>Consumption Date: {{drinkDate}}</div>
+            <div>Style: {{style}}</div>
+            <div>Price: ${{price}}</div>
             <div>Rating Out of 100: {{rating}}</div>
             <div>Drinkable: {{drinkable}}</div>
             <div>Comments: {{comments}}</div>
