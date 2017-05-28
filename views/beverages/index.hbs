@@ -1,16 +1,25 @@
 <h1>Drinkable</h1>
-    <h2>A Way to Remember the Drinks You Had</h2>
-    <h2>During a Night That You May Not Remember</h2>
+    <h2>A Way to Remember the Drinks You Had <br>
+    During a Night That You May Not Remember</h2>
 
-<div class='container'>
-    <div class='beer'>
+<div class='row'>
+    <div class='col-sm-4, beer, logo'>
         <a href="http://localhost:3000/users/{{user._id}}/beer"><img src="http://i.imgur.com/YdVAw4D.png"/></a alt="beer"/>
+        <div class='logo-title'>
+            <h2> Your Beer </h2>
+        </div>
     </div>
-    <div class='wine'>
+    <div class='col-sm-4, wine, logo'>
         <a href="http://localhost:3000/users/{{user._id}}/wine"><img src="http://i.imgur.com/vpsM6Uz.png"/></a alt="wine"/>
+        <div class='logo-title'>
+            <h2> Your Wine </h2>
+        </div>
     </div>
-    <div class='spirits'>
+    <div class='col-sm-4, spirits, logo'>
         <a href="http://localhost:3000/users/{{user._id}}/spirits"><img src="http://i.imgur.com/yeONCWL.png"/></a alt="spirits"/>
+        <div class='logo-title'>
+            <h2> Your Spirits </h2>
+        </div>
     </div>
 </div>
 <br>
