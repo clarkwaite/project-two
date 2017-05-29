@@ -256,7 +256,6 @@ router.get('/:userId/beer', function (request, response) {
                 for (let i = 0; i<user.beverages.length; i++) {
                     if (user.beverages[i].type === 'Beer') {
                         arrayOfTypeBeer.push(user.beverages[i]); 
-                        console.log(user.beverages[i].type);
                     }
                 }
             }
@@ -287,7 +286,6 @@ router.get('/:userId/wine', function (request, response) {
                 for (let i = 0; i<user.beverages.length; i++) {
                     if (user.beverages[i].type === 'Wine') {
                         arrayOfTypeWine.push(user.beverages[i]); 
-                        console.log(user.beverages[i].type);
                     }
                 }
             }
@@ -318,7 +316,6 @@ router.get('/:userId/spirits', function (request, response) {
                 for (let i = 0; i<user.beverages.length; i++) {
                     if (user.beverages[i].type === 'Spirit') {
                         arrayOfTypeSpirit.push(user.beverages[i]); 
-                        console.log(user.beverages[i].type);
                     }
                 }
             }

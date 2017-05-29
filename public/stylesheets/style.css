@@ -130,7 +130,7 @@ p {
   display: flex;
   list-style: none;
   justify-content: center;
-  
+
 }
 .user-info {
   display: flex;
@@ -139,3 +139,20 @@ p {
 .user-info li {
   display: inline;
 }
+.new-drink {
+  text-align: center;
+  font-weight: 500;
+}
+.new-drink h2 {
+  font-weight: 800;
+  background-color: rgba(0,0,0,.5); 
+  margin-bottom: 15px;
+  color: white;
+}
+.form h1 {
+  margin: 0;
+}
+ .new-beverage label {
+   font-weight: 600;
+   font-size: 16px;
+ }
