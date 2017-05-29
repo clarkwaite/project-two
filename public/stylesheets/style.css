@@ -12,15 +12,18 @@
 .intro {
   text-align: center;
   font-weight:600;
+  margin: 0 auto;
 }
 .about {
-  text-align: left;
-  margin: 0 auto;
-  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-weight:400;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 .center {
-  margin: 0 auto;
   text-align: center;
 }
 .user-names {
@@ -32,6 +35,11 @@
   right: auto;
   text-align: center;
   transform: translate(-50%, 0);
+  font-size: 20px;
+}
+.dropdown-toggle {
+  margin:20px;
+  font-size: 20px;
 }
 .navbar-toggle {
 margin-top: 25px;
