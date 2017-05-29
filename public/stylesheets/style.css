@@ -12,7 +12,29 @@
 .intro {
   text-align: center;
   font-weight:600;
-
+}
+.about {
+  text-align: left;
+  margin: 0 auto;
+  list-style-position: inside;
+  font-weight:400;
+}
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+.user-names {
+  font-size: 20px;
+  font-weight:500;
+}
+.dropdown-menu {
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
+.navbar-toggle {
+margin-top: 25px;
 }
 .row img {
     width: 100%;
@@ -22,7 +44,7 @@
   padding: 0 15px;
 }
 .navbar {
-  margin: 0;
+  margin-bottom: 5px;
 }
 .nav {
   text-align: center;

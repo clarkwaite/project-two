@@ -1,25 +1,30 @@
 <div class='intro'>
 <p>A Way to Remember the Drinks You Had During a Night That You May Not Remember</p>
-</div>
-<div>
-<ul>
-    <li>Track Beer, Wine, and Spirits that you have enjoyed, or did not enjoy</li>
+<div class='center'>
+<ul class='about'>
+    <li>Track Beer, Wine, and Spirits that you have enjoyed - or did not enjoy</li>
     <li>Save your thoughts about the drink you can read in the future</li>
     <li>When in doubt, refer back to Your List and remember what you drank</li>
 </ul>
 </div>
+</div>
 <br>
-<h1>Ready to get started?</h1>
-
-<ul>
+<div class="get-started, center">
+<h2>Ready to get started?</h2>
+<div class='user-names'>
+<p>Click Your Username or Create a New User</p>
+  <div><a href="/users/new">Create a New User</a></div>
+  <br>
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select Your Profile
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     {{# each userList}}
-        <li>
-            <div><a href="/users/{{_id}}">
-            <div>{{first_name}}  {{last_name}}</div>
-            </a></div>
-        </li>
-        <br>
+            <li>
+            <a href="/users/{{_id}}">{{first_name}}  {{last_name}}</a>
+            </li>
     {{/ each}}
-</ul>
-
-<div><a href="/users/new">Create a New User</a></div>
+  </ul>
+</div>
