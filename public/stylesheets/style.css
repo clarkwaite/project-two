@@ -9,13 +9,20 @@
 .logo {
   margin: 5px;
 }
+.intro {
+  text-align: center;
+  font-weight:600;
 
+}
 .row img {
     width: 100%;
     height: auto;
 }
 .main-header {
   padding: 0 15px;
+}
+.navbar {
+  margin: 0;
 }
 .nav {
   text-align: center;
