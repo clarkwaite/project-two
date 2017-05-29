@@ -1,8 +1,18 @@
-<form method="POST" action="/users/{{user._id}}?_method=PUT">
-    First Name: <input type="text" name="first_name" value="{{user.first_name}}"><br>
-    Last Name: <input type="text" name="last_name" value="{{user.last_name}}"><br>
-    Email: <input type="text" name="email" value="{{user.email}}"><br><br>
-    <input type="submit">
-</form>
+
+    <form class='form' method="POST" action="/users/{{user._id}}?_method=PUT">
+    <h1>Edit {{user.first_name}}'s Account</h1>
     <br>
-    <div><a href="/users/delete/{{user.id}}">Delete User</a></div>
+    <div class="form-group">
+            <label>First Name*</label>
+            <input type="text" required class="form-control" name="first_name" placeholder="Enter First Name" value="{{user.first_name}}" />
+            <br>
+            <label>Last Name*</label>
+            <input type="text" required class="form-control" name="last_name" placeholder="Enter Last Name" value="{{user.last_name}}" />
+            <br>
+            <label>Email Address*</label>
+            <input type="text" required class="form-control" name="email" placeholder="Enter Email Address" value="{{user.email}}" />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <br>
+    <br>
+    <div class="btn btn-danger"><a href="/users/delete/{{user.id}}">Delete User</a></div>

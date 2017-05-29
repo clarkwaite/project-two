@@ -27,7 +27,7 @@ BeverageSchema.pre('save', function(next){
 var UserSchema = new Schema({
   first_name: String,
   last_name: String,
-  email: { type: String, required: true, unique: true },
+  email: String,
   created_at: Date,
   updated_at: Date,
   beverages: [BeverageSchema]
@@ -41,7 +41,6 @@ UserSchema.pre('save', function(next){
   }
   next();
 });
-
 
 var UserModel = mongoose.model("User", UserSchema);
 var BeverageModel = mongoose.model("Beverage", BeverageSchema);

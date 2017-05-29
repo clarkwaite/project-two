@@ -1,4 +1,14 @@
-
+body {
+  background: black;
+  background-image: url("http://i.imgur.com/HAMVzaJ.jpg?2");
+  color: white;
+}
+.container {
+  background: rgba(0,0,0,.5);
+}
+a { 
+  color: inherit; 
+  } 
 .row {
   display: flex;
   text-align: center;
@@ -36,10 +46,14 @@
   text-align: center;
   transform: translate(-50%, 0);
   font-size: 20px;
+  color: black;
 }
 .dropdown-toggle {
   margin:20px;
   font-size: 20px;
+  font-weight:500;
+  background-color: rgba(50, 50, 50, .5);
+  color: white;
 }
 .navbar-toggle {
 margin-top: 25px;
@@ -53,24 +67,29 @@ margin-top: 25px;
 }
 .navbar {
   margin-bottom: 5px;
+  background-color: rgba(0,0,0,.3);
+  border: 0px;
 }
 .nav {
   text-align: center;
 }
-.nav li {
-  display:inline-block;
-  margin: 30px;
+li {
+  font-size: 18px;
+}
+.drinkable {
+  margin-top: 10px;
 }
 .drinkable h1 {
   margin: 0;
-  font-size:5em;
+  font-size:4.5em;
   font-weight:500;
 }
 h2 {
   margin: 0;
+  display: inline-block;
 }
 p {
-  font-size: 17px;
+  font-size: 22px;
 }
 .bottle {
   padding: 0;
@@ -82,4 +101,41 @@ p {
   width: 100%;
   height: 100%;
   margin-bottom: 12px;
+}
+
+.form {
+  background:rgba(form-bg,.9);
+  padding: 40px;
+  max-width:600px;
+  margin:0px auto;
+  border-radius:br;
+  box-shadow:0 4px 10px 4px rgba(form-bg,.3);
+}
+.form h1 {
+  text-align: center;
+}
+.flex-item {
+    background-size: contain;
+    max-width: 500px;
+    width:28%;
+    height: 300px;
+    display: block;
+    float:left;
+    border: solid black 2px;
+}
+.show-row {
+  margin-bottom:1em;
+}
+.show-content  {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  
+}
+.user-info {
+  display: flex;
+  white-space:nowrap;
+}
+.user-info li {
+  display: inline;
 }

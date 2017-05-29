@@ -13,8 +13,7 @@
 <h2>Ready to get started?</h2>
 <div class='user-names'>
 <p>Click Your Username or Create a New User</p>
-  <div><a href="/users/new">Create a New User</a></div>
-<div class="dropdown">
+<div class="dropup">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Select Your Profile
     <span class="caret"></span>
@@ -24,6 +23,8 @@
             <li>
             <a href="/users/{{_id}}">{{first_name}}  {{last_name}}</a>
             </li>
+            <li role="separator" class="divider"></li>
     {{/ each}}
+    <div><a href="/users/new">Create a User</a></div>
   </ul>
 </div>
