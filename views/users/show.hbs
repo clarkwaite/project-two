@@ -1,13 +1,13 @@
- <div class='beverage-container'>
+ <div class='show-container'>
+
     <h1>{{user.first_name}} {{user.last_name}}</h1>
 
     <div>Email: {{user.email}}</div>
     
       <br>
-      <a href="/users/{{user.id}}/beverages/"> <input type='button' value="Go To Drinkable" class="btn btn-lg btn-default"></button></a>
+      <a href="/users/{{user.id}}/beverages/"><h2>enter drinkable</p></h2>
       <br>
       <br>
-    
-      <a href="/users/edit/{{user.id}}"> <input type='button' value="Edit {{user.first_name}}" class="btn btn-default"></button></a>
-      <a href="/users/"> <input type='button' value="Back To User Selection" class="btn btn-default"></button></a>
+    <a href="/users/edit/{{user.id}}"> <input type='button' value="Edit {{user.first_name}}" class="btn btn-default, dropdown-toggle"></button></a>
+      <a href="/users/"><input type='button' value="Back To User Selection" class="btn btn-default, dropdown-cancel"></button></a>
 </div>

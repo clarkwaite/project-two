@@ -50,14 +50,28 @@ a {
   color: black;
 }
 .dropdown-toggle {
-  margin:20px;
+  margin: 15px;
+  margin-left:40px;
   font-size: 20px;
   font-weight:500;
   background-color: rgba(50, 50, 50, .5);
   color: white;
+  border: solid white 1px;
 }
+.dropdown-cancel {
+  margin:5px;
+  font-size: 20px;
+  font-weight:900;
+  background-color:rgba(255,30,30,.8);
+  color: rgba(50, 50, 50, 1);
+  border: solid white 1px;
+}
+
 .navbar-toggle {
 margin-top: 25px;
+}
+.slogan {
+  padding: 0;
 }
 .row img {
     width: 100%;
@@ -162,6 +176,38 @@ p {
    padding: 10px;
    border-radius: 25px;
  }
+ .show-beverage-container {
+   padding: 10px;
+   border-radius: 25px;
+   margin-top: 15px
+ }
  .beverage-container li {
  list-style: none;
+ }
+ .show-container {
+   text-align: center;
+   background: rgba( 255,255,255,.1);
+   padding: 10px;
+   border-radius: 25px;
+   margin-top: 15px;
+ }
+ .title {
+   font-size: 65px;
+ }
+ .get-ready {
+   color: rgba(255, 160, 0, .9);
+ }
+ .go-back {
+  margin: 15px;
+  margin-left:5px;
+  font-size: 20px;
+  font-weight:500;
+  background-color: rgba(50, 50, 50, .5);
+  color: white;
+  border: solid white 1px;
+ }
+ .show-container h2 {
+  font-weight: 800;
+  font-size: 60px;
+  color: white;
  }
