@@ -2,6 +2,7 @@
 
 <ul>
     {{# each arrayOfTypeBeer}}
+    <div class='beverage-container'>
         <li>
             <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{this.name}}</a></div>
             <div>Type: {{this.type}}</div>
@@ -12,8 +13,9 @@
             <div>Drinkable: {{this.drinkable}}</div>
             <div>Comments: {{this.comments}}</div>
         </li>
+    </div>
         <br>
     {{/ each}}
 </ul>
-<div><a href="/users/{{user._id}}/beverages/new">Add A New Beer</a></div>
-<div><a href="/users/{{user._id}}">Go Back</a></div>
+   <a href="/users/{{userId}}/beverages/new"> <input type='button' value="Add A New Beer" class="btn btn-default"></button></a>
+   <a href="/users/{{userId}}/beverages"> <input type='button' value="Cancel" class="btn btn-danger"></button></a>
