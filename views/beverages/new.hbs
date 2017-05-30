@@ -4,7 +4,7 @@
     <br>
     <div class="form-group">
         <label>Name:</label>
-        <input type="text" required class="form-control" name="name" placeholder="Enter Name" />
+        <input type="text" autocomplete="false" required class="form-control" name="name" placeholder="Enter Name" />
         <br> {{!--radio buttons--}}
         <fieldset class="form-group">
             <label>Type:</label>
@@ -29,14 +29,14 @@
         </fieldset>
         {{!--end radio--}}
         <label>Style:</label>
-        <input type="text" class="form-control" name="style" placeholder="Enter Style" />
+        <input type="text" autocomplete="false" class="form-control" name="style" placeholder="Enter Style" />
         <br>
         <label>Consumption Date:</label>
         <input type="date" class="form-control" name="drinkDate" placeholder="When Did You Drink It?" />
         <br>
         <label>Price:</label>
         <div class="form-group">
-            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+            <label class="sr-only" autocomplete="false">Amount (in dollars)</label>
             <div class="input-group">
                 <div class="input-group-addon">$</div>
                 <input type="text" name="price" class="form-control" id="price" placeholder="Amount">
@@ -70,7 +70,7 @@
         </fieldset>
         
         <label>Comments</label>
-        <input type="text" class="form-control" name="comments" placeholder="Add Comments" />
+        <input type="text" autocomplete="false" class="form-control" name="comments" placeholder="Add Comments" />
         <br>
     </div>
     <input type="submit" class="btn btn-default, dropdown-toggle"></button>

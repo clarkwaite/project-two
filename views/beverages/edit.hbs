@@ -3,7 +3,7 @@
     <br>
     <div class="form-group">
         <label>Name:</label>
-        <input type="text" required class="form-control" name="name" value="{{beverageToEdit.name}}" />
+        <input type="text" autocomplete="false" required class="form-control" name="name" value="{{beverageToEdit.name}}" />
         <br> {{!--radio buttons--}}
         <fieldset class="form-group">
             <label>Type:</label>
@@ -28,14 +28,14 @@
         </fieldset>
         {{!--end radio--}}
         <label>Style:</label>
-        <input type="text" class="form-control" name="style" value="{{beverageToEdit.style}}" />
+        <input type="text" autocomplete="false" class="form-control" name="style" value="{{beverageToEdit.style}}" />
         <br>
         <label>Consumption Date:</label>
         <input type="date" class="form-control" name="drinkDate" value="{{beverageToEdit.date}}"/>
         <br>
         <label>Price:</label>
         <div class="form-group">
-            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+            <label class="sr-only" autocomplete="false">Amount (in dollars)</label>
             <div class="input-group">
                 <div class="input-group-addon">$</div>
                 <input type="text" name="price" class="form-control" id="price" value="{{beverageToEdit.price}}">
@@ -69,7 +69,7 @@
         </fieldset>
         
         <label>Comments</label>
-        <input type="text" class="form-control" name="comments" value="{{beverageToEdit.comments}}" />
+        <input type="text" autocomplete="false" class="form-control" name="comments" value="{{beverageToEdit.comments}}" />
         <br>
     </div>
     <input type="submit" class="btn btn-default, dropdown-toggle"></button>
