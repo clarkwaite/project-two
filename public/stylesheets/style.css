@@ -107,6 +107,18 @@ a {
 
 .main-header {
   padding: 0 15px;
+  text-align: center;
+}
+
+.index-user-name {
+  font-size: 25px;
+  font-weight:500;
+  background-color: rgba(50, 50, 50,.3);
+  color: white;
+  border: solid white 1px;
+  padding: 5px;
+  border-radius: 3%;
+  margin-top: 10px;
 }
 
 .navbar {
@@ -238,6 +250,13 @@ p {
   list-style: none;
  }
 
+ .user-show-container {
+  text-align: center;
+  padding: 10px;
+  border-radius: 25px;
+  margin-top: 5px;
+ }
+
 .show-container {
   text-align: center;
   background: rgba( 255,255,255,.1);
@@ -246,7 +265,7 @@ p {
   margin-top: 5px;
  }
 
-.show-container h2 {
+.user-show-container h2 {
   font-weight: 800;
   font-size: 60px;
   color: rgba(53,210,53,1);

@@ -18,9 +18,9 @@
     <div>
         <p>Comments: {{beverageToView.comments}}</p>
     </div>
-    <a href="/users/{{user.id}}/beverages/{{beverageId}}/edit"> <input type='button' value="Edit This Beverage" class="btn btn-danger, dropdown-toggle"></button></a>
-    <br>
     <a href="/users/{{user.id}}/{{beverageToView.type}}/"> <input type='button' value='Go Back to {{beverageToView.type}}' class="btn btn-danger, cancel-button"></button></a>
+    <br>
+    <a href="/users/{{user.id}}/beverages/{{beverageId}}/edit"> <input type='button' value="Edit This Beverage" class="btn btn-danger, dropdown-toggle"></button></a>
     <br>
     <form action="/users/{{userId}}/beverages/{{beverageId}}?_method=DELETE" method="POST">
         <input type="submit" value="Delete" class="btn btn-danger, delete-button" /></form>

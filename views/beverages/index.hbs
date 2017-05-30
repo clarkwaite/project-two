@@ -1,6 +1,6 @@
 <header class='main-header'>
+<h2 class='index-user-name'>{{user.first_name}}'s Drinks</h2>
 </header>
-
 <div class='row'>
     <div class='col-sm-4, beer, logo'>
         <a href="/users/{{user._id}}/beer"><img src="http://i.imgur.com/YdVAw4D.png"/></a alt="beer"/>
@@ -23,7 +23,5 @@
 </div>
  <div class="new-drink">
      <h2 class='btn btn-default, cancel-button'><a href="/users/{{user._id}}/beverages/new">Add A New Drink</a></h2>
-        <br>
-        <a href="/users">
-            <div>Back to Users</div>
-        </a>
+     <br>
+     <a href="/users"><div>Back to Users</div></a>
