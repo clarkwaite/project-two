@@ -2,21 +2,20 @@
 
 <ul class='show-list'>
     {{# each arrayOfTypeWine}}
-     <a href="/users/{{../user._id}}/beverages/{{_id}}">
-    <div class='beverage-container'>
-        <li>
-            <div class='beverage-name'>{{this.name}}</div>
-            <div>Type: {{this.type}}</div>
-            <div>Consumption Date: <span class='formattedDrinkDate'>{{this.drinkDate}}</span></div>
-            <div>Style: {{this.style}}</div>
-            <div>Price: ${{this.price}}</div>
-            <div>Rating Out of 5: {{this.rating}}</div>
-            <div>Comments: {{this.comments}}</div>
-        </li>
-    </div>
+    <a href="/users/{{../user._id}}/beverages/{{_id}}">
+        <div class='beverage-container'>
+            <li>
+                <div class='beverage-name'>{{this.name}}</div>
+                <div>Type: {{this.type}}</div>
+                <div>Consumption Date: <span class='formattedDrinkDate'>{{this.drinkDate}}</span></div>
+                <div>Style: {{this.style}}</div>
+                <div>Price: ${{this.price}}</div>
+                <div>Rating Out of 5: {{this.rating}}</div>
+                <div>Comments: {{this.comments}}</div>
+            </li>
+        </div>
     </a>
-        <br>
-    {{/ each}}
+    <br> {{/ each}}
 </ul>
 <a href="/users/{{user._id}}/beverages/new"> <input type='button' value="Add A New Wine" class="btn btn-default, dropdown-toggle"></button></a>
 <a href="/users/{{user._id}}/beverages"> <input type='button' value="Go Back" class="btn btn-danger, cancel-button"></button></a>

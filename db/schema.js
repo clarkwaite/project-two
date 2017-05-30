@@ -5,8 +5,8 @@ var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 var BeverageSchema = new Schema({
-  name: {type: String, required: true},
-  type: {type: String, required: true},
+  name: { type: String, required: true },
+  type: { type: String, required: true },
   drinkDate: Date,
   style: String,
   price: String,
@@ -14,10 +14,10 @@ var BeverageSchema = new Schema({
   comments: String
 });
 
-BeverageSchema.pre('save', function(next){
+BeverageSchema.pre('save', function (next) {
   now = new Date();
   this.updated_at = now;
-  if ( !this.created_at ) {
+  if (!this.created_at) {
     this.created_at = now;
   }
   next();
@@ -32,10 +32,10 @@ var UserSchema = new Schema({
   beverages: [BeverageSchema]
 });
 
-UserSchema.pre('save', function(next){
+UserSchema.pre('save', function (next) {
   now = new Date();
   this.updated_at = now;
-  if ( !this.created_at ) {
+  if (!this.created_at) {
     this.created_at = now;
   }
   next();

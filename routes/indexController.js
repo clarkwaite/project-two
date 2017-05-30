@@ -5,8 +5,8 @@ var User = require('../models/user');
 var Beverages = require('../models/beverage');
 
 /* GET home page. */
-router.get('/', function(request, response, next) {
-     response.redirect('/users/');
+router.get('/', function (request, response, next) {
+    response.redirect('/users/');
 });
 
 module.exports = router;

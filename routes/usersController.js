@@ -16,7 +16,6 @@ router.get('/', function (request, response, next) {
                 return;
             }
 
-            // then pass the list of users to Handlebars to render
             response.render('users/index', {
                 userList: userList
             });
@@ -26,7 +25,7 @@ router.get('/', function (request, response, next) {
 // USER CREATE FORM (NEW)
 router.get('/new', function (request, response) {
 
-    // simply render the new user form
+    // render the new user form
     response.render('users/new');
 });
 
@@ -49,8 +48,7 @@ router.post('/', function (request, response) {
             console.log(err);
             return;
         }
-        
-        // once the new user has been saved, redirect to the users index page
+    
         response.redirect('/users');
     });
 
@@ -71,8 +69,7 @@ router.get('/:id', function (request, response) {
                 console.log("Error message: " + error);
                 return;
             }
-
-            // once we've found the user, pass the user object to Handlebars to render
+        
             response.render('users/show', {
                 user: user,
                 userId: request.params.id
@@ -80,7 +77,6 @@ router.get('/:id', function (request, response) {
         });
 
 });
-
 
 // USER EDIT ROUTE
 router.get('/edit/:id', function (request, response) {
@@ -98,8 +94,6 @@ router.get('/edit/:id', function (request, response) {
                 return;
             }
 
-            // once we have found the user, pass the user info to the
-            // user edit form so we can pre-populate the form with existing data
             response.render('users/edit', {
                 user: user
             });
@@ -126,14 +120,10 @@ router.put('/:id', function (request, response) {
                 return;
             }
 
-            // once we have found the user and updated it, redirect to 
-            // that user's show route
             response.redirect('/users/' + userId);
 
         });
-
 });
-
 
 // USER DELETE
 router.get('/delete/:id', function (request, response) {
@@ -149,20 +139,18 @@ router.get('/delete/:id', function (request, response) {
                 console.log("Error while deleting User with ID of " + userId);
                 return;
             }
-
             // once the user has been deleted, redirect back to the users index
             response.redirect('/users');
-
         });
 });
 
 // BEVERAGE INDEX ROUTE
 router.get('/:userId/beverages/', function (request, response) {
 
-     // grab the ID of the user we want to show
-   var userId = request.params.userId;
+    // grab the ID of the user we want to show
+    var userId = request.params.userId;
 
-   User.findById(userId)
+    User.findById(userId)
         .exec(function (error, user) {
 
             if (error) {
@@ -197,8 +185,7 @@ router.post('/:userId/beverages/', function (request, response) {
     // grab the user ID we want to create a new beverage for
     var userId = request.params.userId;
 
-    // then grab the new Beverage that we created using the form
-
+    // then grab the new Beverage info that we created using the form
     var newBeverageName = request.body.name;
     var newBeverageType = request.body.type;
     var newBeverageDrinkDate = request.body.drinkDate;
@@ -207,13 +194,11 @@ router.post('/:userId/beverages/', function (request, response) {
     var newBeverageRating = request.body.rating;
     var newBeverageComments = request.body.comments;
 
-
     // Find the User in the database we want to save the new Beverage for
     User.findById(userId)
         .exec(function (err, user) {
 
-            // add a new Beverage to the User's list of beverages, using the data
-            // we grabbed off of the form
+            // data submitted off of the form
             user.beverages.push(new Beverages({
                 name: newBeverageName,
                 type: newBeverageType,
@@ -224,16 +209,12 @@ router.post('/:userId/beverages/', function (request, response) {
                 comments: newBeverageComments
             }));
 
-            // once we have added the new Beverage to the user's collection 
-            // of beverages, we can save the user
             user.save(function (err) {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                // once the user has been saved, we can redirect back 
-                // to the User's show page, and we should see the new beverage
-                response.redirect('/users/'+userId+'/beverages');
+                response.redirect('/users/' + userId + '/beverages');
             })
         });
 });
@@ -247,23 +228,22 @@ router.get('/:userId/beer', function (request, response) {
     // find the User by ID
     User.findById(userId)
         .exec(function (error, user) {
-            // once we have found the User, find the Beverage in that user's 
             // collection of Beverages that matches our Beverage ID above
             var arrayOfTypeBeer = [];
-            var beers = function(){
-                for (let i = 0; i<user.beverages.length; i++) {
+            var beers = function () {
+                for (let i = 0; i < user.beverages.length; i++) {
                     if (user.beverages[i].type === 'Beer') {
-                        arrayOfTypeBeer.push(user.beverages[i]); 
+                        arrayOfTypeBeer.push(user.beverages[i]);
                     }
                 }
             }
             beers();
-            
-                response.render('beverages/beer', {
+
+            response.render('beverages/beer', {
                 user: user,
                 userId: userId,
                 arrayOfTypeBeer: arrayOfTypeBeer
-                })
+            })
         });
 });
 
@@ -276,24 +256,23 @@ router.get('/:userId/wine', function (request, response) {
     // find the User by ID
     User.findById(userId)
         .exec(function (error, user) {
-            // once we have found the User, find the Beverage in that user's 
             // collection of Beverages that matches our Beverage ID above
             var arrayOfTypeWine = [];
-            var wines = function(){
-                for (let i = 0; i<user.beverages.length; i++) {
+            var wines = function () {
+                for (let i = 0; i < user.beverages.length; i++) {
                     if (user.beverages[i].type === 'Wine') {
-                        arrayOfTypeWine.push(user.beverages[i]); 
+                        arrayOfTypeWine.push(user.beverages[i]);
                     }
                 }
             }
             wines();
-            
-                response.render('beverages/wine', {
+
+            response.render('beverages/wine', {
                 wines: wines,
                 user: user,
                 userId: userId,
                 arrayOfTypeWine: arrayOfTypeWine
-                })
+            })
         });
 });
 
@@ -309,21 +288,21 @@ router.get('/:userId/spirits', function (request, response) {
             // once we have found the User, find the Beverage in that user's 
             // collection of Beverages that matches our Beverage ID above
             var arrayOfTypeSpirit = [];
-            var spirits = function(){
-                for (let i = 0; i<user.beverages.length; i++) {
+            var spirits = function () {
+                for (let i = 0; i < user.beverages.length; i++) {
                     if (user.beverages[i].type === 'Spirits') {
-                        arrayOfTypeSpirit.push(user.beverages[i]); 
+                        arrayOfTypeSpirit.push(user.beverages[i]);
                     }
                 }
             }
             spirits();
-            
-                response.render('beverages/spirit', {
+
+            response.render('beverages/spirit', {
                 spirits: spirits,
                 user: user,
                 userId: userId,
                 arrayOfTypeSpirit: arrayOfTypeSpirit
-                })
+            })
         });
 });
 
@@ -360,20 +339,19 @@ router.get('/:userId/beverages/:beverageId', function (request, response) {
 router.delete('/:userId/beverages/:id', function (request, response) {
     var userId = request.params.userId;
     var beverageId = request.params.id;
-// REMOVE AN ITEM
-  User.findByIdAndUpdate(userId, {
-    $pull: {
-      beverages: {_id: request.params.id }
-    }
-  })
-  .exec(function(err, item) {
-    if(err) {
-      console.log(err);
-      return;
-    }
-
-    response.redirect('/users/'+userId+'/beverages');
-  })
+    // REMOVE AN ITEM
+    User.findByIdAndUpdate(userId, {
+        $pull: {
+            beverages: { _id: request.params.id }
+        }
+    })
+        .exec(function (err, item) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            response.redirect('/users/' + userId + '/beverages');
+        })
 });
 
 // SHOW THE BEVERAGE EDIT FORM
@@ -388,14 +366,10 @@ router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
     // find the User by ID
     User.findById(userId)
         .exec(function (error, user) {
-            // once we have found the User, find the Beverage in its' array 
-            // of beverages that matches the Beverage ID above
+            
             var beverageToEdit = user.beverages.find(function (beverage) {
                 return beverage.id === beverageId;
             })
-            // Once we have found the beverage we would like to edit, render the 
-            // Beverage edit form with all of the information we would like to put 
-            // into the form
 
             //script to have the date show in edit
             var drinkDateFormattedForForm = beverageToEdit.drinkDate.toISOString().slice(0, 10);
@@ -403,7 +377,7 @@ router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
                 userId: userId,
                 beverageId: beverageId,
                 beverageToEdit: beverageToEdit,
-                drinkDateFormattedForForm: drinkDateFormattedForForm 
+                drinkDateFormattedForForm: drinkDateFormattedForForm
             })
         })
 
@@ -424,15 +398,12 @@ router.put('/:userId/beverages/:beverageId', function (request, response) {
     // find the User by ID
     User.findById(userId)
         .exec(function (error, user) {
-
-            // once we have found the User, find the Beverage in that user's 
-            // collection of Beverages that matches our Beverage ID above
+           
             var beverageToEdit = user.beverages.find(function (beverage) {
                 return beverage.id === beverageId;
             })
 
-            // update the beverage we would like to edit with the new 
-            // information from the form
+            // new information from the form
             beverageToEdit.name = editedBeverageFromForm.name;
             beverageToEdit.drinkDate = editedBeverageFromForm.drinkDate;
             beverageToEdit.style = editedBeverageFromForm.style;
@@ -441,12 +412,9 @@ router.put('/:userId/beverages/:beverageId', function (request, response) {
             beverageToEdit.comments = editedBeverageFromForm.comments;
 
             // once we have edited the Beverage, save the user to the database
-            user.save({multi: true}, function  (error, user) {
-                
-                // Once we have saved the user with its edited Beverage, redirect 
-                // to the show page for that User. We should see the Beverage 
-                // information updated.
-                response.redirect('/users/'+userId+'/beverages')
+            user.save({ multi: true }, function (error, user) {
+
+                response.redirect('/users/' + userId + '/beverages')
             });
         });
 });
