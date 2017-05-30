@@ -1,7 +1,7 @@
 # Project 2 - drinkable
 -
 
-###This project contains examples of CRUD routes in Express for two embedded models: User and Beverages.
+### This project contains examples of CRUD routes in Express for two embedded models: User and Beverages.
 
 Languages and frameworks used to create this app are HTML, CSS (Bootstrap), Javascript (jQuery), Mongo DB, Express, and Node
 
@@ -32,14 +32,10 @@ This app could also be utilized by bars or business to train their servers and o
 
 ## Links:
 
-### Link to the Deployed App:
-[HEROKU APP](http:drinkable.herokuapp.com)
+### Link to the Deployed App: [HEROKU APP](http:drinkable.herokuapp.com)
 
-### Link to the Trello Board:
-[TRELLO](https://trello.com/b/ImadGOT3/unit-2-crud-app)
+### Link to the Trello Board: [TRELLO](https://trello.com/b/ImadGOT3/unit-2-crud-app)
 
-### Link to any Wirefames or Mockups:
-[WIREFRAMES](https://docs.google.com/document/d/1ZDzksAXae1sdxv6gqMqbq6EzQbOmncKHw590cwXp3NU/edit?usp=sharing)
+### Link to any Wirefames or Mockups: [WIREFRAMES](https://docs.google.com/document/d/1ZDzksAXae1sdxv6gqMqbq6EzQbOmncKHw590cwXp3NU/edit?usp=sharing)
 
-### Link to ERD
-[ERD](http://i.imgur.com/QZGGrYt.jpg)
+### Link to ERD [ERD](http://i.imgur.com/QZGGrYt.jpg)
