@@ -258,9 +258,8 @@ router.get('/:userId/beer', function (request, response) {
                 }
             }
             beers();
-
+            
                 response.render('beverages/beer', {
-                beers: beers,
                 user: user,
                 userId: userId,
                 arrayOfTypeBeer: arrayOfTypeBeer
@@ -346,12 +345,13 @@ router.get('/:userId/beverages/:beverageId', function (request, response) {
             var beverageToView = user.beverages.find(function (beverage) {
                 return beverage.id === beverageId;
             })
-
-                response.render('beverages/show', {
+            var drinkDateFormattedForShow = beverageToView.drinkDate.toISOString().slice(0, 10);
+            response.render('beverages/show', {
                 user: user,
                 beverageId: beverageId,
                 userId: userId,
-                beverageToView: beverageToView
+                beverageToView: beverageToView,
+                drinkDateFormattedForShow: drinkDateFormattedForShow
             });
         });
 });
@@ -396,10 +396,14 @@ router.get('/:userId/beverages/:beverageId/edit', function (request, response) {
             // Once we have found the beverage we would like to edit, render the 
             // Beverage edit form with all of the information we would like to put 
             // into the form
+
+            //script to have the date show in edit
+            var drinkDateFormattedForForm = beverageToEdit.drinkDate.toISOString().slice(0, 10);
             response.render('beverages/edit', {
                 userId: userId,
                 beverageId: beverageId,
-                beverageToEdit: beverageToEdit
+                beverageToEdit: beverageToEdit,
+                drinkDateFormattedForForm: drinkDateFormattedForForm 
             })
         })
 
@@ -430,7 +434,6 @@ router.put('/:userId/beverages/:beverageId', function (request, response) {
             // update the beverage we would like to edit with the new 
             // information from the form
             beverageToEdit.name = editedBeverageFromForm.name;
-            beverageToEdit.type = editedBeverageFromForm.type;
             beverageToEdit.drinkDate = editedBeverageFromForm.drinkDate;
             beverageToEdit.style = editedBeverageFromForm.style;
             beverageToEdit.price = editedBeverageFromForm.price;

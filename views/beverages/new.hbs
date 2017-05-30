@@ -10,29 +10,30 @@
             <label>Type:</label>
             <div class="form-check">
                 <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="type" id="Beer" value="Beer">
+        <input type="radio" required class="form-check-input" name="type" id="Beer" value="Beer">
                     Beer
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="type" id="Wine" value="Wine">
+        <input type="radio" required class="form-check-input" name="type" id="Wine" value="Wine">
                     Wine
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="type" id="Spirits" value="Spirits">
+        <input type="radio" required class="form-check-input" name="type" id="Spirits" value="Spirits">
                     Spirits
                 </label>
             </div>
         </fieldset>
         {{!--end radio--}}
+        <br>
         <label>Style:</label>
         <input type="text" autocomplete="false" class="form-control" name="style" placeholder="Enter Style" />
         <br>
         <label>Consumption Date:</label>
-        <input type="date" class="form-control" name="drinkDate" placeholder="When Did You Drink It?" />
+        <input type="date" required class="form-control" name="drinkDate" placeholder="When Did You Drink It?" />
         <br>
         <label>Price:</label>
         <div class="form-group">
@@ -42,7 +43,7 @@
                 <input type="text" name="price" class="form-control" id="price" placeholder="Amount">
             </div>
         </div>
-
+<br>
  <fieldset class="form-group">
          <label>Rating Out of 5:</label>
             <div class="form-check">
@@ -68,7 +69,7 @@
                 </label>
             </div>
         </fieldset>
-        
+        <br>
         <label>Comments</label>
         <input type="text" autocomplete="false" class="form-control" name="comments" placeholder="Add Comments" />
         <br>

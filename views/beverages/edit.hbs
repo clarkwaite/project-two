@@ -3,35 +3,13 @@
     <br>
     <div class="form-group">
         <label>Name:</label>
-        <input type="text" autocomplete="false" required class="form-control" name="name" value="{{beverageToEdit.name}}" />
-        <br> {{!--radio buttons--}}
-        <fieldset class="form-group">
-            <label>Type:</label>
-            <div class="form-check">
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="type" id="Beer" value="Beer">
-                    Beer
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="type" id="Wine" value="Wine">
-                    Wine
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="type" id="Spirits" value="Spirits">
-                    Spirits
-                </label>
-            </div>
-        </fieldset>
-        {{!--end radio--}}
+        <input type="text" required autocomplete="false" required class="form-control" name="name" value="{{beverageToEdit.name}}" />
+       <br>
         <label>Style:</label>
         <input type="text" autocomplete="false" class="form-control" name="style" value="{{beverageToEdit.style}}" />
         <br>
         <label>Consumption Date:</label>
-        <input type="date" class="form-control" name="drinkDate" value="{{beverageToEdit.date}}"/>
+        <input type="date" required class="form-control" name="drinkDate" value="{{drinkDateFormattedForForm}}"/>
         <br>
         <label>Price:</label>
         <div class="form-group">
@@ -41,33 +19,10 @@
                 <input type="text" name="price" class="form-control" id="price" value="{{beverageToEdit.price}}">
             </div>
         </div>
-
- <fieldset class="form-group">
-         <label>Rating Out of 5:</label>
-            <div class="form-check">
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="rating" id="1" value="1">
-                    One&nbsp&nbsp
-                </label>
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="rating" id="2" value="2">
-                    Two&nbsp&nbsp 
-                </label>
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="rating" id="3" value="3">
-                    Three&nbsp&nbsp 
-                </label>
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="rating" id="4" value="4">
-                    Four&nbsp&nbsp 
-                </label>
-                <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="rating" id="5" value="5">
-                    Five&nbsp&nbsp 
-                </label>
-            </div>
-        </fieldset>
-        
+        <br>
+        <label>Rating: Out of 5</label>
+        <input type="number" autocomplete="false" class="form-control" name="rating" value="{{beverageToEdit.rating}}" />
+        <br>
         <label>Comments</label>
         <input type="text" autocomplete="false" class="form-control" name="comments" value="{{beverageToEdit.comments}}" />
         <br>

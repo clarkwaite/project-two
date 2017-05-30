@@ -135,10 +135,13 @@ p {
   background:rgba(form-bg,.9);
   padding: 40px;
   max-width:600px;
-  margin:0px auto;
+  margin: 0 auto;
   border-radius:br;
   box-shadow:0 4px 10px 4px rgba(form-bg,.3);
 }
+/*.form-input {
+  max-width: 300px;
+}*/
 .form h1 {
   text-align: center;
 }
@@ -248,6 +251,14 @@ p {
  }
  .user-email {
    font-size: 20px;
+ }
+ .form-group {
+   max-width: 400px;
+   text-align: left;
+   margin: 0 auto;
+ }
+ .new-beverage {
+   text-align: center;
  }
 
  @media (max-width: 500px) {
