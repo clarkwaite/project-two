@@ -197,7 +197,8 @@ p {
   color: white;
  }
  .get-ready {
-   color: rgba(255, 75, 75, .9);
+   color: rgba(255, 255, 255, .7);
+
  }
  .go-back {
   margin: 15px;

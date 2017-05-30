@@ -11,7 +11,6 @@ var BeverageSchema = new Schema({
   style: String,
   price: String,
   rating: Number,
-  drinkable: String,
   comments: String
 });
 
