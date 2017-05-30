@@ -5,7 +5,10 @@ body {
 }
 .container {
   background: rgba(0,0,0,.5);
-  padding: 20px 0;
+  padding: 10px;
+}
+.show-list {
+  padding: 10px;
 }
 a { 
   color: inherit; 
@@ -52,8 +55,7 @@ a {
   color: black;
 }
 .dropdown-toggle {
-  margin: 15px;
-  margin-left:40px;
+  margin: 5px;
   font-size: 20px;
   font-weight:500;
   background-color: rgba(50, 50, 50, .5);
@@ -200,22 +202,28 @@ p {
   color: white;
  }
  .get-ready {
-   color: rgba(255, 255, 255, .7);
+   color: rgba(255, 255, 255, 1);
 
  }
  .go-back {
-  margin: 15px;
-  margin-left:5px;
+  margin: 5px;
   font-size: 20px;
   font-weight:500;
-  background-color: rgba(50,0,0,.8);
-  color: white;
+  background-color: rgba(255,255,255,.8);
+  color: red;
   border: solid white 1px;
  }
  .show-container h2 {
   font-weight: 800;
   font-size: 60px;
   color: white;
+ }
+ .beverage-container:hover{
+   color: white;
+ }
+ .beverage-name {
+   font-size: 24px;
+   font-weight: 500;
  }
 
  @media (max-width: 500px) {

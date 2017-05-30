@@ -1,10 +1,11 @@
 <h1>{{user.first_name}}'s Spirits</h1>
 
-<ul>
+<ul class='show-list'>
     {{# each arrayOfTypeSpirit}}
-         <div class='beverage-container'>
+    <a href="/users/{{../user._id}}/beverages/{{_id}}">
+    <div class='beverage-container'>
         <li>
-            <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{this.name}}</a></div>
+            <div class='beverage-name'>{{this.name}}</div>
             <div>Type: {{this.type}}</div>
             <div>Consumption Date: {{this.drinkDate}}</div>
             <div>Style: {{this.style}}</div>
@@ -13,6 +14,7 @@
             <div>Comments: {{this.comments}}</div>
         </li>
     </div>
+    </a>
         <br>
     {{/ each}}
 </ul>

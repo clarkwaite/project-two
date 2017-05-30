@@ -1,10 +1,11 @@
 <h1>{{user.first_name}}'s Beer</h1>
 
-<ul>
+<ul class='show-list'>
     {{# each arrayOfTypeBeer}}
+    <a href="/users/{{../user._id}}/beverages/{{_id}}">
     <div class='beverage-container'>
         <li>
-            <div>Name: <a href="/users/{{../user._id}}/beverages/{{_id}}">{{this.name}}</a></div>
+            <div class='beverage-name'>{{this.name}}</div>
             <div>Type: {{this.type}}</div>
             <div>Consumption Date: {{this.drinkDate}}</div>
             <div>Style: {{this.style}}</div>
@@ -13,8 +14,9 @@
             <div>Comments: {{this.comments}}</div>
         </li>
     </div>
+    </a>
         <br>
     {{/ each}}
 </ul>
    <a href="/users/{{userId}}/beverages/new"> <input type='button' value="Add A New Beer" class="btn btn-default, dropdown-toggle"></button></a>
-   <a href="/users/{{userId}}/beverages"> <input type='button' value="Go Back" class="btn btn-danger, , dropdown-cancel"></button></a>
+   <a href="/users/{{userId}}/beverages"> <input type='button' value="Go Back" class="btn btn-danger, dropdown-cancel"></button></a>
