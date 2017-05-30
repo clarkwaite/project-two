@@ -1,5 +1,7 @@
 # Project 2 - drinkable
 
+![logo](http://i.imgur.com/JhUJoD6.png "drinkable logo")
+
 ### This project contains examples of CRUD routes in Express for two embedded models: User and Beverages.
 
 Languages and frameworks used to create this app are HTML, CSS (Bootstrap), Javascript (jQuery), Mongo DB, Express, and Node
@@ -20,6 +22,7 @@ This app could also be utilized by bars or business to train their servers and o
 
 ## Features:
 
+![Imgur](http://i.imgur.com/kpmjIwl.png)
 
 * Full CRUD functionality for both users and beverages
 
