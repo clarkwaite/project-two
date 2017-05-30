@@ -192,17 +192,19 @@ p {
    margin-top: 15px;
  }
  .title {
-   font-size: 65px;
+  font-weight: 500;
+  font-size: 60px;
+  color: white;
  }
  .get-ready {
-   color: rgba(255, 160, 0, .9);
+   color: rgba(255, 75, 75, .9);
  }
  .go-back {
   margin: 15px;
   margin-left:5px;
   font-size: 20px;
   font-weight:500;
-  background-color: rgba(50, 50, 50, .5);
+  background-color: rgba(50,0,0,.8);
   color: white;
   border: solid white 1px;
  }
@@ -210,4 +212,16 @@ p {
   font-weight: 800;
   font-size: 60px;
   color: white;
+ }
+
+ @media (max-width: 500px) {
+  body {
+    text-align: center;
+  }
+  .dropdown-toggle {
+    margin: 5px
+  }
+  ul {
+    padding-left: 0px;
+  }
  }
