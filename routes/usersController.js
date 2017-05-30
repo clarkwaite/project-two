@@ -359,6 +359,7 @@ router.get('/:userId/beverages/:beverageId', function (request, response) {
 // REMOVE A BEVERAGE
 router.delete('/:userId/beverages/:id', function (request, response) {
     var userId = request.params.userId;
+    var beverageId = request.params.id;
 // REMOVE AN ITEM
   User.findByIdAndUpdate(userId, {
     $pull: {

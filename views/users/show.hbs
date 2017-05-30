@@ -2,12 +2,13 @@
 
     <h1>{{user.first_name}} {{user.last_name}}</h1>
 
-    <div>Email: {{user.email}}</div>
+    <div class='user-email'>Email: {{user.email}}</div>
     
-      <br>
+      <hr>
       <a href="/users/{{user.id}}/beverages/"><h2>Enter</h2>
       <br>
       <br>
-    <a href="/users/edit/{{user.id}}"> <input type='button' value="Edit {{user.first_name}}" class="btn btn-default, dropdown-toggle"></button></a>
-      <a href="/users/"><input type='button' value="Back To User Selection" class="btn btn-default, dropdown-cancel"></button></a>
+    <a href="/users/edit/{{user.id}}"> <input type='button' value="Edit {{user.first_name}}" class="btn btn-default, cancel-button"></button></a>
+    <br>
+      <a href="/users/"><input type='button' value="Back To User Selection" class="btn btn-default, cancel-button"></button></a>
 </div>

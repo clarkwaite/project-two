@@ -1,14 +1,17 @@
 <div class='show-beverage-container'>
     <h1>{{beverageToView.name}}</h1>
-
-    <div>Type: {{beverageToView.type}}</div>
-    <div>Consumption Date: {{beverageToView.drinkDate}}</div>
-    <div>Style: {{beverageToView.style}}</div>
-    <div>Price: ${{beverageToView.price}}</div>
-    <div>Rating Out of 5: {{beverageToView.rating}}</div>
-    <div>Comments: {{beverageToView.comments}}</div>
-    <br>
+    <div><p>Type: {{beverageToView.type}}</p></div>
+    <div><p>Consumption Date: {{beverageToView.drinkDate}}</p></div>
+    <div><p>Style: {{beverageToView.style}}</p></div>
+    <div><p>Price: ${{beverageToView.price}}</p></div>
+    <div><p>Rating Out of 5: {{beverageToView.rating}}</p></div>
+    <div><p>Comments: {{beverageToView.comments}}</p></div>
      <a href="/users/{{user.id}}/beverages/{{beverageId}}/edit"> <input type='button' value="Edit This Beverage" class="btn btn-danger, dropdown-toggle"></button></a>
-    <a href="/users/{{user.id}}/{{beverageToView.type}}/"> <input type='button' value='Go Back to {{beverageToView.type}}' class="btn btn-danger, dropdown-cancel"></button></a>
-</div>
+    <br>
+    <a href="/users/{{user.id}}/{{beverageToView.type}}/"> <input type='button' value='Go Back to {{beverageToView.type}}' class="btn btn-danger, cancel-button"></button></a>
+   <br>
+    <form action="/users/{{userId}}/beverages/{{beverageId}}?_method=DELETE" method="POST">
+ <input type="submit" value="Delete" class="btn btn-danger, delete-button"/></form> 
+ <br>
+ </div>
 
