@@ -312,7 +312,7 @@ router.get('/:userId/spirits', function (request, response) {
             var arrayOfTypeSpirit = [];
             var spirits = function(){
                 for (let i = 0; i<user.beverages.length; i++) {
-                    if (user.beverages[i].type === 'Spirit') {
+                    if (user.beverages[i].type === 'Spirits') {
                         arrayOfTypeSpirit.push(user.beverages[i]); 
                     }
                 }
