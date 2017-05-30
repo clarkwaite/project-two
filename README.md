@@ -1,5 +1,4 @@
 # Project 2 - drinkable
--
 
 ### This project contains examples of CRUD routes in Express for two embedded models: User and Beverages.
 
