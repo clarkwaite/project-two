@@ -1,6 +1,6 @@
 # Project 2 - drinkable
 
-![logo](http://i.imgur.com/JhUJoD6.png "drinkable logo")
+[![logo](http://i.imgur.com/JhUJoD6.png "drinkable logo") ](drinkable.herokuapp.com)
 
 ### This project contains examples of CRUD routes in Express for two embedded models: User and Beverages.
 
@@ -34,7 +34,7 @@ This app could also be utilized by bars or business to train their servers and o
 
 ## Links:
 
-### Link to the Deployed App: [HEROKU APP](http:drinkable.herokuapp.com)
+### Link to the Deployed App: [HEROKU APP](drinkable.herokuapp.com)
 
 ### Link to the Trello Board: [TRELLO](https://trello.com/b/ImadGOT3/unit-2-crud-app)
 
