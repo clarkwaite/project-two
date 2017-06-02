@@ -13,8 +13,8 @@ body {
   padding: 10px;
 }
 
-a { 
-  color: inherit; 
+a {
+  color: inherit;
 }
 
 .row {
@@ -41,7 +41,6 @@ a {
   flex-direction: column;
   align-items: center;
   font-weight:400;
-  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -216,7 +215,7 @@ p {
 
 .new-drink h2 {
   font-weight: 800;
-  background-color: rgba(0,0,0,.5); 
+  background-color: rgba(0,0,0,.5);
   margin-bottom: 15px;
   color: white;
 }
@@ -294,7 +293,7 @@ p {
   color: red;
   border: solid white 1px;
  }
- 
+
 .beverage-container:hover{
   color: white;
  }
@@ -344,6 +343,10 @@ p {
 
   ul {
     padding-left: 0px;
+  }
+
+  .about li {
+    font-size: 14px;
   }
 
 }
