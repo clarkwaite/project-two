@@ -9,11 +9,13 @@ Languages and frameworks used to create this app are HTML, CSS (Bootstrap), Java
 
 #### To run the project:
 
-• npm install
+• clone the repository and open file location in your terminal
 
-•npm run start:dev
+• run npm install in the terminal
 
-•visit http://localhost:3000
+• run npm run start:dev in the terminal
+
+• visit http://localhost:3000
 
 ## App Objective:
 This app, titled 'drinkable' is designed to allow a user to add beverages to a list and add information and comments about them. The purpose is to keep track to beverages that were enjoyed (or not enjoyed) so that you can refer to the list to make future decisions about your beverage choice.
